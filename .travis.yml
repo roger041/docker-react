@@ -1,0 +1,9 @@
+sudo : required
+services:
+  - docker
+
+ before _install:
+  - docker build -t -f rajdb041/docker-react -f Dokerfile.dev .
+
+  script:
+    - docker run rajdb041/docker-react npm run test -- -- coverage
